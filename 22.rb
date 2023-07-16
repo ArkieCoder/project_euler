@@ -1,11 +1,14 @@
 #!/usr/bin/env ruby
 
 def alpha_positions(letters)
-  letters.downcase.bytes.map{|ascii| ascii - 96}
+  letters.downcase.bytes.map{|ascii|
+    ascii - ("a".bytes.first - 1)
+  }
 end
 
 def name_score(name, sorted_names)
-  alpha_positions(name).inject(&:+) * (sorted_names.index(name) + 1)
+  alpha_positions(name).inject(&:+) *
+    (sorted_names.index(name) + 1)
 end
 
 def main
