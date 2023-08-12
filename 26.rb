@@ -8,8 +8,8 @@ pp (1..1000).map { |denominator|
     # of the longest cycle
     # this basically mimics what we do with long division -
     # multiply by 10 successively (pull down another 0) and find the
-    # remainder -- if the remainder is 1 then that is the beginning/
-    # end of the cycle
+    # remainder -- if the remainder is 1 (the numerator) then that
+    # is the beginning/end of the cycle
     (10**length % denominator) == 1
   } 
 }.each_with_index.max[1] + 1
